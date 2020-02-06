@@ -28,3 +28,4 @@ git-src
 .git-credentials
 *.tar.gz
 .directory
+/*.patch

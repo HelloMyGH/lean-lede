@@ -469,6 +469,9 @@ ar71xx_board_detect() {
 	*"AP152 reference board")
 		name="ap152"
 		;;
+	*"CSAC_III")
+		name="csac"
+		;;
 	*"AP531B0")
 		name="ap531b0"
 		;;

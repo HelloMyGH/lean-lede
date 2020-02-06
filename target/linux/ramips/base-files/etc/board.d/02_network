@@ -74,6 +74,7 @@ ramips_setup_interfaces()
 	widora,neo-32m|\
 	wnce2001|\
 	zbt-cpe102|\
+	wrtnode|\
 	zorlik,zl5900v2|\
 	zte-q7)
 		ucidef_add_switch "switch0"
@@ -251,7 +252,6 @@ ramips_setup_interfaces()
 	ubnt-erx|\
 	ubnt-erx-sfp|\
 	ur-326n4g|\
-	wrtnode|\
 	wrtnode2p | \
 	wrtnode2r | \
 	youhua,wr1200js|\

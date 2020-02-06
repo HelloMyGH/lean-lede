@@ -11,8 +11,16 @@ You may obtain a copy of the License at
 
 $Id$
 ]]--
+local state_msg = ""
+local running=(luci.sys.call("pidof vsftpd > /dev/null") == 0)
 
-m = Map("vsftpd", translate("FTP Server - General Settings"))
+if running then
+	state_msg = "<b><font color=\"green\">" .. translate("Running") .. "</font></b>"
+else
+	state_msg = "<b><font color=\"red\">" .. translate("Not running") .. "</font></b>"
+end
+
+m = Map("vsftpd", translate("FTP Server - General Settings"), translate("vsftpd ") .. state_msg)
 
 sl = m:section(NamedSection, "listen", "listen", translate("Listening Settings"))
 
@@ -38,14 +46,6 @@ o.default = "21"
 o = sl:option(Value, "dataport", translate("Data Port"))
 o.datatype = "uinteger"
 o.default = "20"
-
-o = sl:option(Value, "pasv_min_port", translate("Pasv Min Port"))
-o.datatype = "uinteger"
-o.default = "50000"
-
-o = sl:option(Value, "pasv_max_port", translate("Pasv Max Port"))
-o.datatype = "uinteger"
-o.default = "51000"
 
 
 sg = m:section(NamedSection, "global", "global", translate("Global Settings"))

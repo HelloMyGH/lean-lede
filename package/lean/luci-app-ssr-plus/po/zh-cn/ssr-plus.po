@@ -375,10 +375,10 @@ msgid "Through proxy update"
 msgstr "通过代理更新"
 
 msgid "GFW List"
-msgstr "GFW列表"
+msgstr "自定义GFW列表"
 
 msgid "ShadowSocksR Plus+ Settings"
-msgstr "ShadowSocksR Plus+ 设置（支持SS/SSR/V2RAY）"
+msgstr "ShadowSocksR Plus+ 设置（支持SS/SSR/V2RAY/TROJAN）"
 
 msgid "Main Server"
 msgstr "主服务器"
@@ -408,7 +408,7 @@ msgid "Server Count"
 msgstr "服务器节点数量"
 
 msgid "IP black-and-white list"
-msgstr "黑白名单"
+msgstr "IP黑白名单"
 
 msgid "WAN IP AC"
 msgstr "WAN IP访问控制"
@@ -509,8 +509,26 @@ msgstr "所有端口（默认）"
 msgid "Only Common Ports"
 msgstr "仅常用端口（不走P2P流量到代理）"
 
+msgid "V2ray Path"
+msgstr "v2ray安装目录"
+
+msgid "Manual Upgrade V2ray"
+msgstr "手动升级V2ray"
+
+msgid "After modifying the path, you need to download v2ray manually"
+msgstr "切换v2ray安装目录后，需手动下载v2ray，"
+
+msgid "After modifying the url, you can download v2ray manually"
+msgstr "设置网址后，你可以手动升级v2ray。默认官网地址，如果官方升级了请手动修改4.20.0为最新的版本号。"
+
 msgid "Ping Latency"
-msgstr "Ping延迟"
+msgstr "网络延迟"
+
+msgid "V2ray url"
+msgstr "V2ray下载网址"
+
+msgid "click it only when you apply set the path"
+msgstr "只有在你保存应用新的V2ray安装目录后才可以点击下载安装到新的V2ray安装目录里"
 
 msgid "Bypass Domain List"
 msgstr "域名白名单"

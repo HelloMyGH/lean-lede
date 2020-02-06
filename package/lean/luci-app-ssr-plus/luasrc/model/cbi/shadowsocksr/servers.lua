@@ -31,6 +31,23 @@ end
 o.default=2
 o.rmempty = false
 
+o = s:option(Value, "v2ray_path", translate("V2ray Path"))
+o.default = "/usr/bin/v2ray"
+o.rmempty = true
+o.description = translate("After modifying the path, you need to download v2ray manually")
+
+o = s:option(Value, "v2ray_main_down_url", translate("V2ray url"))
+o.default = "https://github.com/v2ray/v2ray-core/releases/download/v4.20.0"
+o.rmempty = true
+o.description = translate("After modifying the url, you can download v2ray manually")
+
+o = s:option(Button,"update_v2ray",translate("Manual Upgrade V2ray"))
+o.inputstyle = "reload"
+o.write = function()
+  luci.sys.call("bash /usr/share/shadowsocksr/v2ray_update1.sh >>/tmp/ssrplus.log 2>&1")
+end
+o.description = translate("click it only when you apply set the path")
+
 o = s:option(DynamicList, "subscribe_url", translate("Subscribe URL"))
 o.rmempty = true
 
@@ -115,7 +132,6 @@ end
 
 o = s:option(DummyValue,"server",translate("Ping Latency"))
 o.template="shadowsocksr/ping"
-o.width="10%"
 
 m:append(Template("shadowsocksr/server_list"))
 

@@ -3,6 +3,7 @@
 #include "mt7620n.dtsi"
 
 #include <dt-bindings/gpio/gpio.h>
+#include <dt-bindings/input/input.h>
 
 / {
 	compatible = "wrtnode,wrtnode", "ralink,mt7620n-soc";
@@ -14,13 +15,35 @@
 		led-running = &led_indicator;
 		led-upgrade = &led_indicator;
 	};
+	
+	gpio-export {
+		compatible = "gpio-export";
+		#size-cells = <0>;
 
-	gpio-leds {
+		gpio41 {
+			gpio-export,name = "gpio41";
+			gpio-export,output = <1>;
+			gpios = <&gpio2 1 1>;
+		};
+	};
+	
+	leds {
 		compatible = "gpio-leds";
 
 		led_indicator: indicator {
-			label = "wrtnode:blue:indicator";
-			gpios = <&gpio1 14 GPIO_ACTIVE_LOW>;
+			label = "wrtnode:green:indicator";
+			gpios = <&gpio0 2 1>;
+		};
+	};
+	
+	gpio-keys-polled {
+		compatible = "gpio-keys-polled";
+		poll-interval = <20>;
+
+		reset {
+			label = "reset";
+			gpios = <&gpio2 1 1>;
+			linux,code = <0x198>;
 		};
 	};
 };
@@ -53,7 +76,6 @@
 			partition@0 {
 				label = "u-boot";
 				reg = <0x0 0x30000>;
-				read-only;
 			};
 
 			partition@30000 {
@@ -97,7 +119,7 @@
 &pinctrl {
 	state_default: pinctrl0 {
 		default {
-			ralink,group = "ephy", "wled", "pa", "i2c", "wdt", "uartf", "spi refclk";
+			ralink,group = "i2c", "spi refclk", "wled", "ephy";
 			ralink,function = "gpio";
 		};
 	};

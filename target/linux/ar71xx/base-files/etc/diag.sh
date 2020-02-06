@@ -50,6 +50,7 @@ get_status_led() {
 	tew-632brp|\
 	tl-wr942n-v1|\
 	wpj344|\
+	csac|\
 	zbt-we1526)
 		status_led="$board:green:status"
 		;;
@@ -584,6 +585,9 @@ set_state() {
 		status_led_blink_failsafe
 		;;
 	preinit_regular)
+		status_led_blink_preinit_regular
+		;;
+	upgrade)
 		status_led_blink_preinit_regular
 		;;
 	done)
